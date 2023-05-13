@@ -1,8 +1,5 @@
 <script setup>
-import { computed } from "vue";
-
 const props = defineProps(['href', 'title', 'social']);
-
 </script>
 
 <template>
