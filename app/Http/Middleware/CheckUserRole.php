@@ -19,12 +19,12 @@ class CheckUserRole
      * @param UserRole $role
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, UserRole $role): mixed
+    public function handle(Request $request, Closure $next, string $role): mixed
     {
         /** @var User $user */
         $user = Auth::guard()->user();
 
-        if ($user->role != $role) {
+        if ($user->getRole()->value != $role) {
             return redirect('/');
         }
 

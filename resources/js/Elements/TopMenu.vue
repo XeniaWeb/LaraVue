@@ -25,12 +25,12 @@ const showingNavigationDropdown = ref(false);
 
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex flex-wrap">
-                        <!--                                <div v-if="$page.props.auth.user" >-->
-                        <BreezeNavLink :href="route('dashboard')" class="sm:text-sm"
-                                       :active="route().current('dashboard')">
+                        <div v-if="$page.props.auth.user" >
+                        <BreezeNavLink :href="route('admin.dashboard')" class="sm:text-sm"
+                                       :active="route().current('admin.dashboard')">
                             Dashboard
                         </BreezeNavLink>
-                        <!--                                </div>-->
+                        </div>
                         <BreezeNavLink :href="route('home')" :active="route().current('home')" class="sm:text-sm">
                             Home
                         </BreezeNavLink>
@@ -64,7 +64,7 @@ const showingNavigationDropdown = ref(false);
 <!--                        </div>-->
 <!--                    </div>-->
                 </div>
-<!--                <div v-if="$page.props.auth.user" class="hidden sm:flex sm:items-center sm:ml-6">-->
+                <div v-if="$page.props.auth.user" class="hidden sm:flex sm:items-center sm:ml-6">
 <!--                    &lt;!&ndash; Settings Dropdown &ndash;&gt;-->
 <!--                    <div class="ml-3 relative">-->
 <!--                        <BreezeDropdown align="right" width="48">-->
@@ -91,7 +91,7 @@ const showingNavigationDropdown = ref(false);
 <!--                            </template>-->
 <!--                        </BreezeDropdown>-->
 <!--                    </div>-->
-<!--                </div>-->
+                </div>
                 <!-- Hamburger -->
                 <div class="-mr-2 flex items-center sm:hidden">
                     <button @click="showingNavigationDropdown = ! showingNavigationDropdown"

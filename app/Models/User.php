@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Validation\Rules\Enum;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -59,8 +60,8 @@ class User extends Authenticatable
         return $this;
     }
 
-    /** @return string */
-    public function getRole(): string
+    /** @return UserRole */
+    public function getRole(): UserRole
     {
         return $this->role;
     }
