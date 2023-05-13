@@ -1,0 +1,11 @@
+{
+    "Name": "Name",
+    "Name.first": "First Name",
+    "Name.last": "Last Name",
+    "failed": "These credentials do not match our records.",
+    "password": "The provided password is incorrect.",
+    "auth.failed": "These credentials do not match our records.",
+
+    "previous": "&laquo; Previous",
+    "next": "Next &raquo;"
+}

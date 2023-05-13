@@ -46,7 +46,12 @@ sail down
 
 ## Frontend
 ```sh
-
 npm run build
 npm run dev
+```
+
+### Refresh Database
+```sh
+./vendor/bin/sail artisan migrate:fresh --force
+./vendor/bin/sail artisan db:seed --force
 ```

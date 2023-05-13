@@ -1,0 +1,7 @@
+{
+    "Name": "Name",
+    "Name.first": "Vorname",
+    "Name.last": "Nachname",
+    "failed": "Diese Anmeldeinformationen stimmen nicht mit unseren Unterlagen überein.",
+    "password": "Das angegebene Passwort ist falsch."
+}
