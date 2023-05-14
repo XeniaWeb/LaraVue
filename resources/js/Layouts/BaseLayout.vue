@@ -5,7 +5,7 @@ import XenFooter from '@/Elements/Footer.vue';
 
 <template>
     <!--  My basic guest template -->
-    <div class="overflow-hidden min-h-screen">
+    <div class="overflow-hidden min-h-screen bg-white">
         <div v-if="$slots.page_background">
             <slot name="page_background"/>
         </div>

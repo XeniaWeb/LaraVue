@@ -4,9 +4,38 @@ import AppLogoXeniaWeb from '@/Components/AppLogoXeniaWeb.vue';
 </script>
 
 <template>
-    <footer class="grid-footer bg-red-500 mt-auto border-t">
+    <footer class="grid-footer bg-[#BF4A3F] mt-auto border-t">
         <div class="wrapper">
             <div class="relative flex justify-between py-4">
+                <nav class="flex w-full justify-around border-2 border-blue-500 list-none">
+                    <li class="w-1/3  border border-green-500 p-4 m-1">
+                        <ul>
+                            <li>Photo by <a href="https://unsplash.com/@xeniaweb?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Oksana Bürki</a> on <a href="https://unsplash.com/photos/xSxzCPYxiWM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+                            </li>
+                            <li>fffffff</li>
+                            <li>gggggggg</li>
+                            <li>hhhhhh</li>
+                        </ul>
+                    </li>
+                    <li class="w-1/3 border border-green-500 p-4 m-1">
+                        <ul>
+                            <li>DDDDD</li>
+                            <li>fffffff</li>
+                            <li>gggggggg</li>
+                            <li>hhhhhh</li>
+                        </ul>
+                    </li>
+                    <li class="w-1/3 border border-green-500 p-4 m-1">
+                        <ul>
+                            <li>DDDDD</li>
+                            <li>fffffff</li>
+                            <li>gggggggg</li>
+                            <li>hhhhhh</li>
+                        </ul>
+                    </li>
+                </nav>
+            </div>
+            <div class="relative flex justify-between pb-8">
                 <div class="flex">
                     <ul class="flex mr-auto pt-1 pr-4 justify-start items-center align-middle flex-wrap sm:flex-nowrap">
                         <SocialLink href="https://www.linkedin.com/in/xeniaweb" title="Xenia on Linkedin">

@@ -4,7 +4,8 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import {Head, Link, useForm} from '@inertiajs/vue3';
+import BackFoundation from "@/Components/BackFoundation.vue";
 
 const form = useForm({
     title: '',
@@ -13,53 +14,76 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('admin.socil.create'), {
+    form.post(route('admin.social.store'), {
         onFinish: () => form.reset(),
     });
 };
 </script>
 
 <template>
-    <h1> Здесь добавим социалку</h1>
-<!--    <x-form.section>-->
-<!--        <form method="POST" action="{{ route('producer.socials.store') }}" enctype="multipart/form-data">-->
-<!--            @csrf-->
-<!--            &lt;!&ndash; Title &ndash;&gt;-->
-<!--            <div class="my-2 lg:w-2/3">-->
-<!--                <x-form.input-label for="title" :value="__('Название социальной')"/>-->
-<!--                <x-form.text-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')"-->
-<!--                                   placeholder="Твиттер"-->
-<!--                                   required autofocus/>-->
-<!--                <x-form.input-error :messages="$errors->get('title')" class="mt-2"/>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; Lang key &ndash;&gt;-->
-<!--            <div class="my-2">-->
-<!--                <x-form.input-label for="lang_key" :value="__('Имя иконки из Font-Awesome на латинице')"/>-->
-<!--                <div class="lg:flex items-center">-->
-<!--                    <x-form.text-input id="lang_key" class=" lg:w-2/3 block mt-1 w-full" type="text" name="lang_key"-->
-<!--                                       :value="old('lang_key')" placeholder="twitter"-->
-<!--                                       required/>-->
-<!--                    <span class="theme-btn bg-white/10 text-sm py-1 hover:bg-gray-200 text-gray-400 lg:ml-6"><a-->
-<!--                        class="hover:text-gray-100" href="https://fontawesome.com/search?f=brands&o=r"-->
-<!--                        target="_blank">посмотреть названия иконок</a></span>-->
-<!--                </div>-->
-<!--                <x-form.input-error :messages="$errors->get('lang_key')" class="mt-2"/>-->
-<!--            </div>-->
-<!--            &lt;!&ndash; Comment &ndash;&gt;-->
-<!--            <div class="my-2 lg:w-2/3">-->
-<!--                <x-form.input-label for="comment-social" :value="__('Комментарий')"/>-->
-<!--                <x-form.text-input id="comment-social" class="block mt-1 w-full" type="text" name="comment"-->
-<!--                                   :value="old('comment')"/>-->
-<!--                <x-form.input-error :messages="$errors->get('comment')" class="mt-2"/>-->
-<!--            </div>-->
-<!--            <div class="w-auto  md:ml-0 md:w-1/3 lg:x-1/4 lg:text-left">-->
-<!--                <x-theme-button class="bg-themeRed">-->
-<!--                    {{ __('Сохранить') }}-->
-<!--                </x-theme-button>-->
-<!--            </div>-->
-<!--        </form>-->
-<!--    </x-form.section>-->
+    <Head title="Socials: Add"/>
 
+    <AuthenticatedLayout>
+        <template #header>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">New Social</h2>
+        </template>
+
+        <BackFoundation>
+            <form @submit.prevent="submit">
+                <!-- Title -->
+                <div class="mb-4">
+                    <InputLabel for="title" :value="$t('Title')"/>
+                    <TextInput
+                        id="title"
+                        type="text"
+                        class="mt-1 block w-full md:w-2/3"
+                        v-model="form.title"
+                        required
+                        autofocus
+                        autocomplete="title"
+                    />
+                    <InputError class="mt-2" :message="form.errors.title"/>
+                </div>
+                <!-- Lang key -->
+                <div class="mb-4">
+                    <InputLabel for="lang_key" :value="$t('Имя иконки из Font-Awesome на латинице')"/>
+                    <div class="lg:flex  items-center">
+                        <TextInput
+                            id="lang_key"
+                            type="text"
+                            class="mt-1 block w-full md:w-2/3"
+                            v-model="form.lang_key"
+                            required
+                            autocomplete="lang_key"
+                        />
+                        <span
+                            class="theme-btn bg-white/10 text-sm py-1 hover:bg-gray-200 text-gray-400 lg:ml-6"><a
+                            class="hover:text-gray-100" href="https://fontawesome.com/search?f=brands&o=r"
+                            target="_blank">посмотреть названия иконок</a></span>
+                    </div>
+                    <InputError class="mt-2" :message="form.errors.lang_key"/>
+                </div>
+                <!-- Comment -->
+                <div class="mb-4">
+                    <InputLabel for="comment-social" :value="$t('Комментарий')"/>
+                    <TextInput
+                        id="comment-social"
+                        type="text"
+                        class="mt-1 block w-full md:w-2/3"
+                        v-model="form.comment"
+                        autocomplete="comment"
+                    />
+                    <InputError class="mt-2" :message="form.errors.comment"/>
+                </div>
+
+                <PrimaryButton class="ml-4 bg-indigo-500" :class="{ 'opacity-25': form.processing }"
+                               :disabled="form.processing">
+                    Save
+                </PrimaryButton>
+
+            </form>
+        </BackFoundation>
+    </AuthenticatedLayout>
 </template>
 
 <style scoped>
